@@ -30,7 +30,19 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text('Esta é a minha Home'),
+            ElevatedButton(
+                      style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Colors.black), 
+                      foregroundColor: WidgetStatePropertyAll(Colors.white)),
+                      onPressed: () {
+                        print("Cliquei");
+                        Navigator.pushNamed(context, "/perfil");
+                      }, 
+                      child: Text("Voltar para o Perfil"),
+                      ),
+              
           ],
+
         ),
       ),
     );

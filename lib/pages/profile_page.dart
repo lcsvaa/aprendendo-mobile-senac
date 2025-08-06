@@ -99,6 +99,16 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempus justo et felis pretium viverra. Vestibulum ut vestibulum arcu. Curabitur egestas auctor enim vitae tristique. Duis a eros euismod urna efficitur tempus et non purus. Ut elementum, ligula sed molestie tristique, risus velit lacinia mauris, eget sodales tortor mauris nec elit. Quisque eget ullamcorper velit. Maecenas posuere nisi nec est fringilla, id convallis nisl luctus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam mi urna, dictum at risus vitae, aliquet tempor magna. In vitae enim nisi. Donec id felis tristique, sagittis libero quis, laoreet dui. Vestibulum facilisis ligula quis augue facilisis, ac accumsan diam egestas.Curabitur eleifend arcu in nisi mollis, gravida auctor eros auctor. Nullam porta mauris a neque congue, sed feugiat orci facilisis. Nunc vel ullamcorper velit. Maecenas commodo metus vel velit facilisis faucibus. Sed nibh mi, accumsan et enim et, gravida auctor velit. Suspendisse suscipit volutpat ante id euismod. Maecenas aliquam libero tempor porta tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut pulvinar lorem ut malesuada vulputate. Sed et erat enim. Nunc non porttitor ex. Phasellus congue lacinia venenatis. Nullam sit amet congue dui, ultrices pulvinar ipsum. Praesent ac lobortis justo. Mauris porttitor laoreet dolor vel gravida.",         style: TextStyle(color: Colors.white))), 
                     SizedBox(height: 20),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Colors.black), 
+                      foregroundColor: WidgetStatePropertyAll(Colors.white)),
+                      onPressed: () {
+                        print("Cliquei");
+                        Navigator.pushNamed(context, "/");
+                      }, 
+                      child: Text("Voltar para Home"),
+                      ),
               ],
             ),
           ],

@@ -8,12 +8,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: "/perfil",
+      routes: {
+        "/": (context) => HomePage(),
+        "/perfil": (context) => ProfilePage(),
+      },
+
       debugShowCheckedModeBanner: true,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 77, 0, 25)),
       ),
-      home: const ProfilePage(),
+      // home: const ProfilePage(),
     );
   }
 }
