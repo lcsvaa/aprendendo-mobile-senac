@@ -9,7 +9,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   bool isObscure = true;
-  Color corBorda = Colors.b;
+  Color corBorda = Colors.black;
 
   final TextEditingController controllerLogin = TextEditingController();
   final TextEditingController controllerSenha = TextEditingController();
@@ -37,9 +37,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     Center(
                       child: Container(
                         padding: const EdgeInsets.all(5),
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 0, 255, 0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
                           shape: BoxShape.circle,
+                          border: Border.all(color: corBorda, width: 4),
                         ),
                         child: ClipOval(
                           child: Image.network(
@@ -63,13 +64,66 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
 
-                SizedBox(height: 30),
-              
-              Row(children: [
-                Expanded(child: GestureDetector(child: Container(color: Colors.red, child: Text("Vermelho")))),
-                Expanded(child: GestureDetector(child: Container(color: Colors.green, child: Text("Verde")))),
-                Expanded(child: GestureDetector(child: Container(color: Colors.blue, child: Text("Azul"))))
-              ],),
+                const SizedBox(height: 30),
+
+                Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            corBorda = Colors.red;
+                          });
+                        },
+                        child: Container(
+                          color: Colors.red,
+                          padding: const EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: const Text(
+                            "Vermelho",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            corBorda = Colors.green;
+                          });
+                        },
+                        child: Container(
+                          color: Colors.green,
+                          padding: const EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: const Text(
+                            "Verde",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            corBorda = Colors.blue;
+                          });
+                        },
+                        child: Container(
+                          color: Colors.blue,
+                          padding: const EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          child: const Text(
+                            "Azul",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
 
                 const SizedBox(height: 30),
 
@@ -143,9 +197,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                     : Icons.visibility,
                               ),
                             ),
-                            labelStyle: TextStyle(color: Colors.black),
+                            labelStyle: const TextStyle(color: Colors.black),
                             labelText: "Senha",
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color.fromARGB(255, 255, 0, 76),
                               ),
