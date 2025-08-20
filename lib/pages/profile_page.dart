@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_teste_dia_01_agosto/lists/app_list.dart';
 import 'package:projeto_teste_dia_01_agosto/widgets/custom_title.dart';
 
 class ProfilePage extends StatefulWidget {
-   ProfilePage({super.key});
+  ProfilePage({super.key});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -11,8 +12,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   bool isObscure = true;
   Color corBorda = Colors.black;
-
-  
 
   final TextEditingController controllerLogin = TextEditingController();
   final TextEditingController controllerSenha = TextEditingController();
@@ -25,11 +24,11 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         toolbarOpacity: 0.6,
         foregroundColor: Colors.black,
-        backgroundColor:  Color.fromARGB(255, 255, 0, 76),
-        title:  Text('Olá Mundo mobile'),
+        backgroundColor: Color.fromARGB(255, 255, 0, 76),
+        title: Text('Olá Mundo mobile'),
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: ListView(
           children: [
             Column(
@@ -39,7 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     Center(
                       child: Container(
-                        padding:  EdgeInsets.all(5),
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
@@ -55,7 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                     ),
-                     Positioned(
+                    Positioned(
                       right: 130,
                       bottom: 5,
                       child: CircleAvatar(
@@ -67,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
 
-                 SizedBox(height: 30),
+                SizedBox(height: 30),
 
                 Row(
                   children: [
@@ -80,9 +79,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         },
                         child: Container(
                           color: Colors.red,
-                          padding:  EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
                           alignment: Alignment.center,
-                          child:  Text(
+                          child: Text(
                             "Vermelho",
                             style: TextStyle(color: Colors.white),
                           ),
@@ -98,9 +97,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         },
                         child: Container(
                           color: Colors.green,
-                          padding:  EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
                           alignment: Alignment.center,
-                          child:  Text(
+                          child: Text(
                             "Verde",
                             style: TextStyle(color: Colors.white),
                           ),
@@ -116,9 +115,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         },
                         child: Container(
                           color: Colors.blue,
-                          padding:  EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
                           alignment: Alignment.center,
-                          child:  Text(
+                          child: Text(
                             "Azul",
                             style: TextStyle(color: Colors.white),
                           ),
@@ -128,26 +127,44 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
 
-                 SizedBox(height: 30),
+                SizedBox(height: 30),
 
-                CustomTitle(title: "Meu nome", icon: Icons.person_3, subtitle: "Lucas"),
-                 SizedBox(height: 20),
+                CustomTitle(
+                  title: "Meu nome",
+                  icon: Icons.person_3,
+                  subtitle: "Lucas",
+                ),
+                SizedBox(height: 20),
 
-                 CustomTitle(title: "Meu email", icon: Icons.mail, subtitle: "lucas@lucas.com"),
-                 SizedBox(height: 20),
+                CustomTitle(
+                  title: "Meu email",
+                  icon: Icons.mail,
+                  subtitle: "lucas@lucas.com",
+                ),
+                SizedBox(height: 20),
 
-                 CustomTitle(title: "Meu cargo", icon: Icons.business, subtitle: "Estudante"),
-                 SizedBox(height: 20),
+                CustomTitle(
+                  title: "Meu cargo",
+                  icon: Icons.business,
+                  subtitle: "Estudante",
+                ),
+                SizedBox(height: 20),
 
                 Form(
-                  key: _formKey,
                   child: Column(
                     children: [
+                      ...AppList.listTitles.map((title) {
+                        return CustomTitle(
+                          title: title["title"],
+                          icon: title["icon"],
+                          subtitle: title["valor"],
+                        );
+                      }),
                       SizedBox(
                         width: double.infinity,
                         child: TextFormField(
                           controller: controllerLogin,
-                          decoration:  InputDecoration(
+                          decoration: InputDecoration(
                             labelStyle: TextStyle(color: Colors.black),
                             labelText: "Login",
                             focusedBorder: OutlineInputBorder(
@@ -158,7 +175,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                       ),
-                       SizedBox(height: 20),
+                      SizedBox(height: 20),
                       SizedBox(
                         width: double.infinity,
                         child: TextFormField(
@@ -177,9 +194,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                     : Icons.visibility,
                               ),
                             ),
-                            labelStyle:  TextStyle(color: Colors.black),
+                            labelStyle: TextStyle(color: Colors.black),
                             labelText: "Senha",
-                            focusedBorder:  OutlineInputBorder(
+                            focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color.fromARGB(255, 255, 0, 76),
                               ),
@@ -191,17 +208,17 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
 
-                 SizedBox(height: 20),
+                SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     print(controllerLogin.text);
                     print(controllerSenha.text);
                   },
-                  child:  Text("Realizar Login"),
+                  child: Text("Realizar Login"),
                 ),
-                 SizedBox(height: 30),
+                SizedBox(height: 30),
 
-                 Row(
+                Row(
                   children: [
                     Icon(Icons.fingerprint),
                     SizedBox(width: 8),
@@ -214,19 +231,16 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ],
                 ),
-                 SizedBox(height: 10),
+                SizedBox(height: 10),
                 Container(
-                  padding:  EdgeInsets.all(20),
+                  padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color:  Color.fromARGB(255, 255, 0, 76),
+                    color: Color.fromARGB(255, 255, 0, 76),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child:  Text(
-                    "Oi",
-                    style: TextStyle(color: Colors.white),
-                  ),
+                  child: Text("Oi", style: TextStyle(color: Colors.white)),
                 ),
-                 SizedBox(height: 20),
+                SizedBox(height: 20),
                 ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black),
@@ -236,7 +250,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     print("Cliquei");
                     Navigator.pushNamed(context, "/");
                   },
-                  child:  Text("Voltar para Home"),
+                  child: Text("Voltar para Home"),
                 ),
               ],
             ),
