@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_teste_dia_01_agosto/lists/app_list.dart';
+import 'package:projeto_teste_dia_01_agosto/services/shared_preferences_service..dart';
 import 'package:projeto_teste_dia_01_agosto/widgets/custom_title.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({super.key});
@@ -129,27 +131,26 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 SizedBox(height: 30),
 
-                CustomTitle(
-                  title: "Meu nome",
-                  icon: Icons.person_3,
-                  subtitle: "Lucas",
-                ),
-                SizedBox(height: 20),
+                // CustomTitle(
+                //   title: "Meu nome",
+                //   icon: Icons.person_3,
+                //   subtitle: "Lucas",
+                // ),
+                // SizedBox(height: 20),
 
-                CustomTitle(
-                  title: "Meu email",
-                  icon: Icons.mail,
-                  subtitle: "lucas@lucas.com",
-                ),
-                SizedBox(height: 20),
+                // CustomTitle(
+                //   title: "Meu email",
+                //   icon: Icons.mail,
+                //   subtitle: "lucas@lucas.com",
+                // ),
+                // SizedBox(height: 20),
 
-                CustomTitle(
-                  title: "Meu cargo",
-                  icon: Icons.business,
-                  subtitle: "Estudante",
-                ),
-                SizedBox(height: 20),
-
+                // CustomTitle(
+                //   title: "Meu cargo",
+                //   icon: Icons.business,
+                //   subtitle: "Estudante",
+                // ),
+                // SizedBox(height: 20),
                 Form(
                   child: Column(
                     children: [
@@ -210,9 +211,18 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     print(controllerLogin.text);
                     print(controllerSenha.text);
+
+                    await SharedPreferencesService.setStringLocalStorage(
+                      controllerLogin.text,
+                      "login",
+                    );
+                    await SharedPreferencesService.setStringLocalStorage(
+                      controllerSenha.text,
+                      "senha",
+                    );
                   },
                   child: Text("Realizar Login"),
                 ),
