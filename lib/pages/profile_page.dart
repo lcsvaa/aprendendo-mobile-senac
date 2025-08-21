@@ -24,6 +24,17 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child:GestureDetector(
+              onTap:() {
+              Navigator.pushNamed(context, "/dadosUsuario");
+            }, 
+            child: Icon(Icons.settings),
+            ),
+          ),
+        ],
         toolbarOpacity: 0.6,
         foregroundColor: Colors.black,
         backgroundColor: Color.fromARGB(255, 255, 0, 76),
