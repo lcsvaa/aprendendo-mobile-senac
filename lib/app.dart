@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_teste_dia_01_agosto/pages/cep_api_page.dart';
 import 'package:projeto_teste_dia_01_agosto/pages/dados_user_page.dart';
 import 'package:projeto_teste_dia_01_agosto/pages/home_page.dart';
 import 'package:projeto_teste_dia_01_agosto/pages/profile_page.dart';
@@ -9,11 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/perfil",
+      initialRoute: "/viaCepApi",
       routes: {
         "/": (context) => HomePage(),
         "/perfil": (context) => ProfilePage(),
         "/dadosUsuario": (context) => DadosUserPage(),
+        "/viaCepApi": (context) => CepApiPage(),
       },
 
       debugShowCheckedModeBanner: false,

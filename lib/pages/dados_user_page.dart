@@ -27,11 +27,14 @@ class _DadosUserPageState extends State<DadosUserPage> {
   }
 
   void loadSharedPreference() async {
-    String? loginStorage = await SharedPreferencesService.getStringLocalStorage("login",
+    String? loginStorage = await SharedPreferencesService.getStringLocalStorage(
+      "login",
     );
-    String? senhaStorage = await SharedPreferencesService.getStringLocalStorage("senha",
+    String? senhaStorage = await SharedPreferencesService.getStringLocalStorage(
+      "senha",
     );
     setState(() async {
+      //arrumar o set state para atualizar em tempo real
       login = loginStorage;
       senha = senhaStorage;
     });
@@ -56,6 +59,7 @@ class _DadosUserPageState extends State<DadosUserPage> {
         child: ListView(
           children: [
             //?? = Null safety
+            //? = pode receber um calor nulo
             Text(login ?? "Não há de login"),
             Text(senha ?? "Não há dados da senha"),
           ],
