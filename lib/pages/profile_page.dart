@@ -27,11 +27,11 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: [
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child:GestureDetector(
-              onTap:() {
-              Navigator.pushNamed(context, "/dadosUsuario");
-            }, 
-            child: Icon(Icons.settings),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, "/dadosUsuario");
+              },
+              child: Icon(Icons.settings),
             ),
           ),
         ],
