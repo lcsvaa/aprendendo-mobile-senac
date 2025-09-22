@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_teste_dia_01_agosto/lists/app_list.dart';
 import 'package:projeto_teste_dia_01_agosto/services/shared_preferences_service..dart';
-import 'package:projeto_teste_dia_01_agosto/widgets/custom_title.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class DadosUserPage extends StatefulWidget {
   const DadosUserPage({super.key});

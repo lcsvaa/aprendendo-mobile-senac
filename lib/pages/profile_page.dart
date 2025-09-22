@@ -5,7 +5,7 @@ import 'package:projeto_teste_dia_01_agosto/widgets/custom_title.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({super.key});
+  const ProfilePage({super.key});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -73,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: CircleAvatar(
                         radius: 16,
                         backgroundColor: Colors.white,
-                        child: Icon(Icons.camera, size: 18),
+                        child: Icon(Icons.camera, size: 26),
                       ),
                     ),
                   ],
@@ -264,8 +264,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: WidgetStateProperty.all(Colors.black),
+                    foregroundColor: WidgetStateProperty.all(Colors.white),
                   ),
                   onPressed: () {
                     print("Cliquei");
