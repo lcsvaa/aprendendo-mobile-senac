@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/viaCepApi",
+      initialRoute: "/perfil",
       routes: {
         "/": (context) => HomePage(),
         "/perfil": (context) => ProfilePage(),
@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      // home: const ProfilePage(),
     );
   }
 }

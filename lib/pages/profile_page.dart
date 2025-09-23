@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:projeto_teste_dia_01_agosto/lists/app_list.dart';
+import 'package:projeto_teste_dia_01_agosto/services/gallery_service.dart';
 import 'package:projeto_teste_dia_01_agosto/services/shared_preferences_service..dart';
 import 'package:projeto_teste_dia_01_agosto/widgets/custom_title.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +20,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
   final TextEditingController controllerLogin = TextEditingController();
   final TextEditingController controllerSenha = TextEditingController();
+
+  GalleryService acessarGaleria = GalleryService();
+  File? selectedImage;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -58,7 +64,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           border: Border.all(color: corBorda, width: 4),
                         ),
                         child: ClipOval(
-                          child: Image.network(
+                          child: selectedImage !=null 
+                          ? Image.file(selectedImage!,width: 100,
+                            height: 100,
+                            fit: BoxFit.cover) //! CONFIRMA QUE NAO EH NULO E VAI CHEGAR A IMAGEM 
+                          : Image.network(
                             "https://mir-s3-cdn-cf.behance.net/user/115/12600c1976196065.67f5b6cf4b752.jpg",
                             width: 100,
                             height: 100,
@@ -73,7 +83,17 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: CircleAvatar(
                         radius: 16,
                         backgroundColor: Colors.white,
-                        child: Icon(Icons.camera, size: 26),
+                        child: GestureDetector(
+                           onTap: () async{
+                            File? file = await acessarGaleria.captureImageFromCamera();
+                            if (file !=null) {
+                              setState(() {
+                                selectedImage = file;
+                              });
+                            }
+                          
+                        },
+                          child: Icon(Icons.camera, size: 26)),
                       ),
                     ),
                   ],
